@@ -8,19 +8,35 @@ export default function SecondPage(){
    
     const [questions , setQuestions] = React.useState([])
     const [checkAnswers, setCheckAnswers] = React.useState(false)
-    const [newGame, setNewGame] = React.useState(false)
+    const [areAllTrue, setAreAllTrue] = React.useState(false)
     console.log(questions)
-
-    const areAllTrue = questions.every(question => { question.correct_answer === question.selectedAnswer})
 
 
     React.useEffect(  ()=>{
         fetch('https://opentdb.com/api.php?amount=4&type=multiple')
             .then( res => res.json())
             .then( data => setQuestions(data.results.map(question => { 
-                return ({...question,
-                        selectedAnswer: "",
-                        id: nanoid()
+
+                // mixing the correct and incorrect answers
+                
+                let suggestionsArray = []
+                let randomNum = Math.floor(Math.random() * 4)
+                suggestionsArray[randomNum] = cleanWord(question.correct_answer)
+
+                for(let i=0, j=0; i < 4; i++){
+                    if(i!== randomNum){
+                        suggestionsArray[i] = cleanWord(question.incorrect_answers[j])
+                        j++
+                    }
+                }
+
+                // end of mixing the correct and incorrect answers
+                
+                return (
+                    {...question,
+                     selectedAnswer: "",
+                     id: nanoid(),
+                     suggestions: suggestionsArray
                     })
             })))
     }, [])
@@ -39,8 +55,8 @@ export default function SecondPage(){
     /* End of Cleaning Data html encoding */
 
     const verifyAnswers = () =>{
-        setCheckAnswers( prevCheck => { return !prevCheck})
-        setNewGame(true)
+        setCheckAnswers( true)
+        setAreAllTrue( questions.every(question => { question.correct_answer === question.selectedAnswer}))
         if(areAllTrue){
             console.log("congrats")
         } else{
@@ -58,27 +74,12 @@ export default function SecondPage(){
 
     const questionElements = questions.map( questionItem => { 
 
-        // mixing the array 
-        let array = []
-        let randomNum = Math.floor(Math.random() * 4)
-        array[randomNum] = cleanWord(questionItem.correct_answer)
-
-        for(let i=0, j=0; i < 4; i++){
-            if(i!== randomNum){
-                array[i] = cleanWord(questionItem.incorrect_answers[j])
-                j++
-            }
-
-        }
-
-        // end of mixing the array
-
         return (<Quiz 
                 key={nanoid()}
                 id={questionItem.id}
                 title={cleanWord(questionItem.question)} 
                 trueValue={cleanWord(questionItem.correct_answer)} 
-                suggestions={array}
+                suggestions={questionItem.suggestions}
                 runCheck={checkAnswers}
                 handleSelectedAnswer={handleSelectedAnswer}
                 selectedAnswer={questionItem.selectedAnswer}

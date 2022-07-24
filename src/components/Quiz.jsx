@@ -36,9 +36,6 @@ export default function Quiz(props){
             <h1>{props.title}</h1>
             <div className="quiz-suggestions">
                 {suggestionButtons}
-                { props.runCheck && 
-                (props.selectedAnswer === props.trueValue ? <i class="fa-light fa-check"></i>: <i class="fa-light fa-xmark-large"></i>)
-                }
             </div>
             
         </div>
