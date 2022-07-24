@@ -9,7 +9,6 @@ export default function SecondPage(){
     const [questions , setQuestions] = React.useState([])
     const [checkAnswers, setCheckAnswers] = React.useState(false)
     const [areAllTrue, setAreAllTrue] = React.useState(false)
-    console.log(questions)
 
 
     React.useEffect(  ()=>{
