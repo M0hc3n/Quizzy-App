@@ -25,7 +25,7 @@ export default function Quiz(props){
             <button key={nanoid()}
                     onClick={() => {props.handleSelectedAnswer(props.id, suggestion)}} 
                     className={nameOfClass}
-                    >{suggestion}</button>
+                    disabled={props.runCheck}>{suggestion}</button>
         )
     })
     

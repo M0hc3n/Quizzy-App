@@ -99,22 +99,16 @@ html{
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     overflow: hidden;
     background-color:#F5F7FB;
 }
 
 #second-page .second-page-container .questions-wrapper{
-    height: auto;
-    width: 80%;
     margin-left: auto;
     margin-right: auto;
-}
-
-
-#second-page .second-page-container .quiz-container .quiz-suggestions{
-    margin-left: 3rem;
+    width: 80%;
+    height: 70vh;
 }
 
 #second-page .second-page-container .quiz-container .quiz-suggestions .suggestion-button{
@@ -169,7 +163,7 @@ html{
 
 
 #second-page .second-page-container .questions-wrapper{
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 #second-page .intro-page-button{
@@ -183,15 +177,12 @@ html{
 
 #second-page .second-page-container .quiz-container .quiz-suggestions{
     height: fit-content;
+    margin-left: 3rem;
     width: 80%;
     display: flex;
     justify-content: space-between;
 }
 
-#second-page .second-page-container .questions-wrapper{
-    width: 80%;
-    height: 70vh;
-}
 
 #second-page .second-page-container .quiz-container h1{
     font-size: 1.2rem;
@@ -206,3 +197,75 @@ html{
 
 
 /* End of Second Page section */
+
+/* Media Queries */
+
+@media screen  and (max-width: 730px){
+
+    #second-page .second-page-container .quiz-container .quiz-suggestions{
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #second-page .upper-right,
+    #second-page .bottom-left{
+        display: none;
+    }
+
+    
+    #second-page .second-page-container .questions-wrapper{
+        margin: 0 auto;
+        margin-top: 50px;
+        
+    }
+
+    #second-page .second-page-container{
+        min-height: 90rem;
+    }
+
+    #second-page .second-page-container .quiz-container .quiz-suggestions .suggestion-button{
+        height: 50px;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    
+    #second-page .second-page-container .buttons-wrapper{
+        position: relative;
+        margin-top: 53rem;
+        margin-bottom: 5rem;
+    }
+
+    #second-page .intro-page-button{
+        width: 150px;
+        font-size: 1rem;
+    }
+    
+}
+
+@media screen and (max-width: 480px){
+    #second-page .second-page-container .buttons-wrapper{
+        margin-top: 57rem;
+    }
+    
+}
+
+@media screen and (max-width: 320px){
+    #second-page .second-page-container{
+        min-height: 100rem;
+    }
+
+    #second-page .second-page-container .buttons-wrapper{
+        margin-top: 63rem;
+    }
+
+    #second-page .intro-page-button{
+        width: 100px;
+        font-size: 1rem;
+    }
+    
+}
+
+/* End of Media Queries */

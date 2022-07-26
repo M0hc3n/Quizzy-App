@@ -56,11 +56,8 @@ export default function SecondPage(){
     const verifyAnswers = () =>{
         setCheckAnswers( true)
         setAreAllTrue( questions.every(question => { question.correct_answer === question.selectedAnswer}))
-        if(areAllTrue){
-            console.log("congrats")
-        } else{
-            console.log("hard luck !")
-        }
+        
+        // document.getElementsByClassName('suggestion-button').disabled = true
     }
 
     function handleSelectedAnswer(id, answer){
@@ -89,16 +86,15 @@ export default function SecondPage(){
 
     return (
         <section id="second-page">
-            {areAllTrue && <Confetti  
+            {/* {areAllTrue && <Confetti  
                             width="1000px"
-                            height="1000px"/>}
+                            height="1000px"/>} */}
 
             <div className="second-page-container">
                 <div className="upper-right"></div>
                 <div className="questions-wrapper">
                     {questionElements}
                 </div>
-                <hr className="second-page-sep"/>
                 <div className="buttons-wrapper">
                     <button className="intro-page-button" onClick={verifyAnswers}>Show Answers</button>
                     <button className="intro-page-button" onClick={() => window.location.reload(false)}>New Game</button>
