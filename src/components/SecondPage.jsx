@@ -44,6 +44,7 @@ export default function SecondPage(){
     function cleanWord(word){
         return word.replaceAll('&quot;', '').replaceAll('&#039', '').replaceAll('&amp;','').replaceAll(';', '').replaceAll('&', '')
     }
+        // note: this is not working on browsers on mobile view (is says replaceAll is not a function) so the mobile view words will be a bit merged with html base codes
 
     function CleanData(array){
         return array.map( word => {

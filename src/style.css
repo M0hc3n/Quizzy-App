@@ -221,7 +221,7 @@ html{
     }
 
     #second-page .second-page-container{
-        min-height: 90rem;
+        min-height: 230vh;
     }
 
     #second-page .second-page-container .quiz-container .quiz-suggestions .suggestion-button{
@@ -234,12 +234,12 @@ html{
     
     #second-page .second-page-container .buttons-wrapper{
         position: relative;
-        margin-top: 53rem;
-        margin-bottom: 5rem;
+        top: 13rem;
     }
 
     #second-page .intro-page-button{
         width: 150px;
+        margin-right: 5px;
         font-size: 1rem;
     }
     
@@ -247,22 +247,24 @@ html{
 
 @media screen and (max-width: 480px){
     #second-page .second-page-container .buttons-wrapper{
-        margin-top: 57rem;
+        margin-top:45rem;
     }
     
 }
 
 @media screen and (max-width: 320px){
     #second-page .second-page-container{
-        min-height: 100rem;
+        min-height: 200vh;
     }
 
     #second-page .second-page-container .buttons-wrapper{
-        margin-top: 63rem;
+        position: relative;
+        top: 13rem;
     }
 
     #second-page .intro-page-button{
         width: 100px;
+        margin-right: 5px;
         font-size: 1rem;
     }
     
